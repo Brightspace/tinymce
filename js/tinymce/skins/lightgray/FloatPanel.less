@@ -81,4 +81,76 @@
 .@{prefix}-floatpanel .@{prefix}-arrow {
 	display: none;
 }
+
+// Conform OK button style to daylight
+.@{prefix}-floatpanel .@{prefix}-primary.@{prefix}-btn {
+	left: 1rem !important;
+	background-color: #006fbf;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: .3rem;
+	
+	button {		
+		border-color: #1c5295;
+		color: #fff;
+		font-family: Lato;
+		font-size: .7rem;
+		font-weight: 700;
+		letter-spacing: .02rem;
+		line-height: 1rem;
+		width: 4rem;
+	}
+}
+
+.@{prefix}-floatpanel .@{prefix}-primary.@{prefix}-btn:hover {
+	background-color: #1c5295;
+
+	button {
+		color: #ffffff;
+	}
+}
+
+// Conform Cancel button style to daylight
+.@{prefix}-floatpanel .@{prefix}-last.@{prefix}-btn {
+	left: 6rem !important;
+	background-color: #f2f3f5;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: .3rem;
+
+	button {		
+		border-color: #d3d9e3;
+		color: #565a5c;
+		font-family: Lato;
+		font-size: .7rem;
+		font-weight: 700;
+		letter-spacing: .02rem;
+		line-height: 1rem;
+		width: 4rem;
+	}
+}
+
+.@{prefix}-floatpanel .@{prefix}-last.@{prefix}-btn:hover {
+	background-color: #e6eaf0;
+
+	button {
+		color: #565a5c;
+	}
+}
+
+// Remove borders
+.@{prefix}-floatpanel .@{prefix}-window-head {
+	border-bottom: 0;
+}
+
+.@{prefix}-floatpanel .@{prefix}-foot {
+	border-top: 0;
+}
+
+// Conform shim style to daylight 
+//#@{prefix}-modal-block.@{prefix}-in {
+//	opacity: 0.5;
+//	background-color: #ffffff;
+//}
+
 // End of D2L

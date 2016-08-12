@@ -3,7 +3,7 @@
 .@{prefix}-textbox {
 	background: @textbox-bg;
 	border: 1px solid @d2l-textbox-border;
-	.border-radius(7px);  //d2l orginally 3px
+	.border-radius(3px);
 	.box-shadow(@textbox-box-shadow);
 	display: inline-block;
 	.transition(~"border linear .2s, box-shadow linear .2s");
@@ -44,9 +44,13 @@
 }
 
 // D2L
+.@{prefix}-textbox {
+	.border-radius(6px);
+}
+
 // Fix Input box issues in color picker
 .@{prefix}-colorpicker + .@{prefix}-container.@{prefix}-form.@{prefix}-abs-layout-item.@{prefix}-last .@{prefix}-textbox {
-	height: 1.5rem !important;
+	height: 1.4rem !important;
 
 	&:hover, &:focus {
 		border-color: rgb(0, 111, 191);

@@ -37,3 +37,24 @@
 	.box-shadow(none);
 	.opacity(@btn-box-disabled-opacity);
 }
+
+// D2L
+// Fix color buttons issues in Table dialog
+.@{prefix}-floatpanel.@{prefix}-in .@{prefix}-combobox.@{prefix}-colorbox.@{prefix}-abs-layout-item.@{prefix}-last.@{prefix}-has-open {
+	padding-top: 5px;
+
+	input.@{prefix}-textbox {
+		padding: 0 0.2rem 0 0.2rem;
+		height: 1.4rem;
+	}
+
+	.@{prefix}-btn.@{prefix}-open {
+		min-height: 1.4rem;
+		height: 1.4rem;
+
+		button {
+			padding-top: 3px;
+		}
+	}
+}
+// End of D2L

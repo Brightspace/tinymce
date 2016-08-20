@@ -36,3 +36,21 @@
 	text-align: right;
 	direction: rtl;
 }
+
+//D2L
+// make all first abs-layout-item labels that are spans fill the whole container
+
+span.@{prefix}-label.@{prefix}-abs-layout-item {
+
+	&.@{prefix}-first, &.@{prefix}-last {
+		width: 100% !important;
+	}
+
+	&.@{prefix}-first {
+		font-size: @d2l-span-label-title-font-size !important;
+	}
+
+	&.@{prefix}-last {
+		font-size: @d2l-text-font-size !important;
+	}
+}

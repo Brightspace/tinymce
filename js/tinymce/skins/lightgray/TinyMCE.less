@@ -112,16 +112,26 @@ div.@{prefix}-edit-area {
 	line-height: 20px;
 	text-align: center;
 	vertical-align: middle;
-	padding: 2px;
+
+//	padding: 2px; moved the padding to the div
 }
 
 .@{prefix}-charmap td div {
 	text-align: center;
+	padding: 2px;
+	font-size: @d2l-charmap-char-font-size;
+	line-height: inherit;
+	height: 100%;
+
+	&:hover, &:focus {
+		background-color: @d2l-table-bg-highlight;
+		color: @d2l-table-text-highlight;
+	}
 }
 
-.@{prefix}-charmap td:hover {
-	background: @btn-bg-hlight;
-}
+// .@{prefix}-charmap td:hover {
+// 	background: @btn-bg-hlight;
+// }
 
 .@{prefix}-grid td.@{prefix}-grid-cell div {
 	border: 1px solid @grid-border;

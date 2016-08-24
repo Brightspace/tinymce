@@ -48,6 +48,15 @@
 	font-family: 'tinymce-small', Arial;
 }
 
+// D2L
+// fix IE 11 issue where the arrow buttons on the full screen toolbar is too big
+i.@{prefix}-caret::before {
+	display: inline-block;
+	width: @iconSize;
+	height: @iconSize;
+}
+//end D2L
+
 .@{prefix}-i-save:before                 { content: "\e000"; }
 .@{prefix}-i-newdocument:before          { content: "\e001"; }
 .@{prefix}-i-fullpage:before             { content: "\e002"; }

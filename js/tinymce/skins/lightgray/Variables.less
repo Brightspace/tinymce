@@ -4,6 +4,12 @@
 
 @prefix:                         mce;
 
+//D2L Daylight Colour Definitions
+@d2l-color-celestine:          #006fbf;
+@d2l-color-celestine-light-1:  #f2f8fc;
+@d2l-color-celestine-light-2:  #99c5e5;
+@d2l-color-titanius:           #d3d9e3;
+
 // Default font
 // @font-family:                    "Helvetica Neue", Helvetica, Arial, sans-serif;
 @font-family:                    Lato,'Lucida Sans Unicode','Lucida Grande',sans-serif; //d2l "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -38,9 +44,9 @@
 @btn-box-disabled-opacity:       0.4;
 @btn-bg:                         white;
 @btn-bg-hlight:                  white; // #D9D9D9;
-@btn-bg-hover:                   #f2f3f5; // darken(@btn-bg, 5%);
+@btn-bg-hover:                   @d2l-color-celestine-light-1; // darken(@btn-bg, 5%);
 @btn-bg-hlight-hover:            darken(@btn-bg-hlight, 5%);
-@btn-border-hover:               #d3d9e3; // darken(@btn-bg, 20%);
+@btn-border-hover:               @d2l-color-celestine; // darken(@btn-bg, 20%);
 @btn-border-active:              darken(@btn-bg, 20%);
 @btn-padding:                    0.5rem; // 4px 8px;
 
@@ -66,23 +72,26 @@
 @menu-margin:                    -1px 0 0;
 @menu-border:                    rgba(0, 0, 0, 0.2);
 @menubar-border:                 mix(@panel-border, @panel-bg, 60%);
-@menuitem-text-inverse:          @text-inverse;
+@menuitem-text-inverse:          @d2l-color-celestine;
 @menubar-bg-active:              darken(@btn-bg, 10%);
-@menuitem-bg-hover:              #0081C2;
-@menuitem-bg-selected:           #2980b9;
-@menuitem-bg-selected-hlight:    #3498db;
+@menuitem-bg-hover:              @d2l-color-celestine-light-1;
+@menuitem-bg-selected:           @d2l-color-celestine-light-1;
+@menuitem-bg-selected-hlight:    transparent;
 @menuitem-bg-disabled:           #CCC;
 @menuitem-caret:                 @menuitem-text;
 @menuitem-caret-selected:        @menuitem-text-inverse;
 @menuitem-separator-top:         transparent;
 @menuitem-separator-bottom:      rgba(0,0,0,0.1);
-@menuitem-bg-active:             #3498db;
-@menuitem-text-active:           @text-inverse;
+@menuitem-bg-active:             @d2l-color-celestine-light-1;
+@menuitem-text-active:           @d2l-color-celestine;
 @menuitem-preview-border-active: #aaa;
 @menubar-menubtn-text:           #333;
+@menuitem-border-top:            1px solid @d2l-color-titanius;
+@menuitem-border-active:         1px solid @d2l-color-celestine-light-2;
+@menuitem-border-hover:          @menuitem-border-active;
 
 // Panel
-@panel-border:                   #d3d9e3; // rgba(0,0,0,.2);
+@panel-border:                   @d2l-color-titanius; // rgba(0,0,0,.2);
 @panel-bg:                       white; //#FDFDFD;
 @panel-bg-hlight:                white; // #DDD;
 

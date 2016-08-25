@@ -2,7 +2,7 @@
 
 .@{prefix}-menu-item {
 	display: block;
-	padding: 6px 15px 6px 12px;
+	padding: 15px 20px;
 	clear: both;
 	font-weight: normal;
 	line-height: 20px;
@@ -10,16 +10,19 @@
 	white-space: nowrap;
 	cursor: pointer;
 	line-height: normal;
+	border-top: @menuitem-border-top;
 	border-left: 4px solid transparent;
 	margin-bottom: 1px;
 }
 
 .@{prefix}-menu-item .@{prefix}-ico, .@{prefix}-menu-item .@{prefix}-text {
 	color: @menuitem-text;
+	font-size: 1rem;
 }
 
 .@{prefix}-menu-item.@{prefix}-disabled .@{prefix}-text, .@{prefix}-menu-item.@{prefix}-disabled .@{prefix}-ico {
-	color: mix(@menuitem-text, @menu-bg, 40%);
+	//color: mix(@menuitem-text, @menu-bg, 40%);
+	opacity: 0.3;
 }
 
 .@{prefix}-menu-item:hover .@{prefix}-text, .@{prefix}-menu-item.@{prefix}-selected .@{prefix}-text, .@{prefix}-menu-item:focus .@{prefix}-text {
@@ -76,6 +79,7 @@
 
 .@{prefix}-menu-item-normal.@{prefix}-active {
 	background-color: @menuitem-bg-active;
+	border: @menuitem-border-active;
 }
 
 .@{prefix}-menu-item-preview.@{prefix}-active {

@@ -35,7 +35,7 @@
 
 // D2L
 // For the Font Family and Font Size buttons
-.@{prefix}-fullscreen .@{prefix}-toolbar-grp .@{prefix}-menubtn {
+.@{prefix}-toolbar-grp .@{prefix}-menubtn {
 	height: 2rem;
 	span {
 		width: auto;
@@ -45,6 +45,17 @@
 		span {
 			color: @d2l-table-text-highlight;
 		}
+
+		.@{prefix}-open {
+			border-color: @d2l-table-text-highlight;	
+		}
+	}
+
+	.@{prefix}-active {
+		//border-color: @d2l-table-text-highlight;	
+		//background-color: @menuitem-bg-active;
+		outline: none !important;
+		background-color: inherit !important;
 	}
 }	
 // End of D2L

@@ -148,18 +148,45 @@ div.@{prefix}-menu .@{prefix}-menu-item-sep, .@{prefix}-menu-item-sep:hover {
 // D2L
 .@{prefix}-menu-item {
 	margin-bottom: 0;
+	border: @menuitem-border-top;
+	border-bottom-color: transparent;
+	border-top-color: @d2l-menuitem-border-top-color;
+
+	span {
+		font-weight: @d2l-font-weight;
+	}
+
+	// Increase space between icons and labels
+	.@{prefix}-ico {
+		margin-right: 0.5rem;
+	}
 }
 
-.@{prefix}-menu-item:active  {
+// Set border radius for the first and last menu item
+.@{prefix}-menu-item.@{prefix}-first {
+	border-top-left-radius: .25rem;
+	border-top-right-radius: .25rem;
+}
+
+.@{prefix}-menu-item.@{prefix}-last {
+	border-bottom-left-radius: .25rem;
+	border-bottom-right-radius: .25rem;
+}
+
+.@{prefix}-menu-item:active, .@{prefix}-menu-item:hover, .@{prefix}-menu-item:focus  {
 	border: @menuitem-border-active;
-}
 
-.@{prefix}-menu-item:hover {
-	border: @menuitem-border-hover;
+	span {
+		color: @menuitem-text-active !important;
+	}
 }
 
 .mce-menu-item-preview.mce-active {
 	border: @menuitem-border-active;
 	background-color: @menuitem-bg-hover;
+
+	span {
+		color: @menuitem-text-active !important;
+	}
 }
 // End of D2L

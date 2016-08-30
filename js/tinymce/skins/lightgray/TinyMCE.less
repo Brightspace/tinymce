@@ -93,7 +93,17 @@ div.@{prefix}-edit-area {
 
 // For the table button
 .@{prefix}-i-table {
-	margin-right: 0.3rem;
+	margin-right: 0.3rem;	
+	margin-top: -0.2rem;
+}
+
+.@{prefix}-btn {
+	&:hover, &:focus, &:active {
+		.@{prefix}-i-table {
+			color:	@d2l-table-text-highlight;
+			margin-top: 0.1rem;
+		}
+	}
 }
 
 // END OF D2L

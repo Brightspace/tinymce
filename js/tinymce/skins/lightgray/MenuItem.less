@@ -2,7 +2,7 @@
 
 .@{prefix}-menu-item {
 	display: block;
-	padding: 6px 15px 6px 12px;
+	padding: 15px 20px;
 	clear: both;
 	font-weight: normal;
 	line-height: 20px;
@@ -10,16 +10,19 @@
 	white-space: nowrap;
 	cursor: pointer;
 	line-height: normal;
+	border-top: @menuitem-border-top;
 	border-left: 4px solid transparent;
 	margin-bottom: 1px;
 }
 
 .@{prefix}-menu-item .@{prefix}-ico, .@{prefix}-menu-item .@{prefix}-text {
 	color: @menuitem-text;
+	font-size: 1rem;
 }
 
 .@{prefix}-menu-item.@{prefix}-disabled .@{prefix}-text, .@{prefix}-menu-item.@{prefix}-disabled .@{prefix}-ico {
-	color: mix(@menuitem-text, @menu-bg, 40%);
+	//color: mix(@menuitem-text, @menu-bg, 40%);
+	opacity: 0.3;
 }
 
 .@{prefix}-menu-item:hover .@{prefix}-text, .@{prefix}-menu-item.@{prefix}-selected .@{prefix}-text, .@{prefix}-menu-item:focus .@{prefix}-text {
@@ -76,6 +79,7 @@
 
 .@{prefix}-menu-item-normal.@{prefix}-active {
 	background-color: @menuitem-bg-active;
+	border: @menuitem-border-active;
 }
 
 .@{prefix}-menu-item-preview.@{prefix}-active {
@@ -140,3 +144,49 @@ div.@{prefix}-menu .@{prefix}-menu-item-sep, .@{prefix}-menu-item-sep:hover {
 	border-left-color: transparent;
 	border-right-color: @menuitem-caret-selected;
 }
+
+// D2L
+.@{prefix}-menu-item {
+	margin-bottom: 0;
+	border: @menuitem-border-top;
+	border-bottom-color: transparent;
+	border-top-color: @menuitem-border-top-color;
+
+	span {
+		font-weight: @d2l-font-weight;
+	}
+
+	// Increase space between icons and labels
+	.@{prefix}-ico {
+		margin-right: 0.5rem;
+	}
+}
+
+// Set border radius for the first and last menu item
+.@{prefix}-menu-item.@{prefix}-first {
+	border-top-left-radius: .25rem;
+	border-top-right-radius: .25rem;
+}
+
+.@{prefix}-menu-item.@{prefix}-last {
+	border-bottom-left-radius: .25rem;
+	border-bottom-right-radius: .25rem;
+}
+
+.@{prefix}-menu-item:active, .@{prefix}-menu-item:hover, .@{prefix}-menu-item:focus  {
+	border: @menuitem-border-active;
+
+	span {
+		color: @menuitem-text-active !important;
+	}
+}
+
+.mce-menu-item-preview.mce-active {
+	border: @menuitem-border-active;
+	background-color: @menuitem-bg-hover;
+
+	span {
+		color: @menuitem-text-active !important;
+	}
+}
+// End of D2L

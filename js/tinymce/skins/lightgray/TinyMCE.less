@@ -92,8 +92,24 @@ div.@{prefix}-edit-area {
 }
 
 // For the table button
-.@{prefix}-i-table {
-	margin-right: 0.3rem;
+.@{prefix}-menubtn .@{prefix}-i-table {
+	margin-right: 0.3rem;	
+}
+
+.@{prefix}-menubtn {
+	&:hover, &:focus, &:active {
+		.@{prefix}-i-table {
+			color:	@d2l-table-text-highlight;
+		}
+	}
+}
+
+.@{prefix}-btn {
+	&:hover, &:focus, &:active {
+		.@{prefix}-i-table, .@{prefix}-i-tabledelete, .@{prefix}-i-tableinsertrowbefore, .@{prefix}-i-tableinsertrowafter, .@{prefix}-i-tabledeleterow, .@{prefix}-i-tableinsertcolbefore, .@{prefix}-i-tableinsertcolafter, .@{prefix}-i-tabledeletecol {
+			color:	@d2l-table-text-highlight;
+		}
+	}
 }
 
 // END OF D2L

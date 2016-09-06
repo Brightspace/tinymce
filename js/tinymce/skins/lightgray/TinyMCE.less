@@ -82,6 +82,20 @@ div.@{prefix}-edit-area {
 	}
 }
 
+// RTL
+.@{prefix}-rtl .@{prefix}-toolbar-grp .@{prefix}-toolbar {
+	.@{prefix}-btn-group:not(:first-child) {
+		padding-left: 0;
+		margin-left: 0;
+		padding-right: .25rem;
+		margin-right: .25rem;
+		}
+	.@{prefix}-btn-group.@{prefix}-last {
+		right: initial;
+		left: 0;
+	}
+}
+
 .@{prefix}-fullscreen > .@{prefix}-container-body {
 	padding-left: 3rem;
 	padding-right: 3rem;

@@ -36,14 +36,24 @@
 }
 
 // Fix alignment button issue in the table dialog
-.@{prefix}-floatpanel.@{prefix}-window.@{prefix}-in .@{prefix}-formitem .@{prefix}-btn.@{prefix}-menubtn.@{prefix}-listbox.@{prefix}-last.@{prefix}-btn-has-text {
-	width: auto !important;
-	height: 2rem !important;
+.@{prefix}-floatpanel.@{prefix}-window.@{prefix}-in {
+	.@{prefix}-formitem .@{prefix}-btn.@{prefix}-menubtn.@{prefix}-listbox.@{prefix}-last.@{prefix}-btn-has-text {
+		height: 2rem !important;
+		padding: 0;
 
-	.@{prefix}-caret {
-		top: 0;
+		.@{prefix}-caret {
+			top: 0;
+		}
+	}
+
+	// RTL
+	.@{prefix}-rtl.@{prefix}-formitem button {
+		text-align: right;
 	}
 }
 
-
+// RTL
+.@{prefix}-rtl .@{prefix}-listbox .@{prefix}-caret {
+	left: 0;
+}
 // End of D2L

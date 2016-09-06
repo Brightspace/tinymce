@@ -73,6 +73,10 @@
 
 // D2L 
 // Fix jitter issue
+.@{prefix}-colorbutton .@{prefix}-open {
+	width: 1.4rem;	
+}
+
 .@{prefix}-fullscreen .@{prefix}-colorbutton:hover .@{prefix}-open {
     border-left-width: 1px;
     border-left-style: solid;
@@ -81,4 +85,23 @@
 .@{prefix}-fullscreen .@{prefix}-colorbutton button span.@{prefix}-preview {
 	left: 44%;
 }
+
+// RTL
+.@{prefix}-fullscreen .@{prefix}-rtl {
+	.@{prefix}-colorbutton .@{prefix}-open {
+		text-align: left;
+	}
+	
+	.@{prefix}-colorbutton:hover .@{prefix}-open {
+	    border-left-width: 0;
+	    border-right-width: 1px;
+	    border-right-style: solid;
+    }
+
+    .@{prefix}-colorbutton button span.@{prefix}-preview {
+		left: 0;
+		right: 13%;
+	}
+}
+
 // End of D2L

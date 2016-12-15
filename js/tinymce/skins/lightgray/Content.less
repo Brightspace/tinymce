@@ -1,17 +1,46 @@
 /* Content.less */
 /*
+Default values:
 @font-family: Verdana, Arial, Helvetica, sans-serif;
 @font-size: 11px;
 */
 
 //D2L changes to match d2l-typography
-@font-family: Lato,'Lucida Sans Unicode','Lucida Grande',sans-serif;
+//@font-family: Lato,'Lucida Sans Unicode','Lucida Grande',sans-serif;
+
+//D2L additions
 @font-size: 0.95rem;
+@d2l-color-ferrite: #565a5c;
+
+html {
+	font-family: Lato,'Lucida Sans Unicode','Lucida Grande',sans-serif;
+}
+
+html[lang=ar-sa]{
+	font-family: 'Arabic Transparent', 'Arabic Typesetting', 'Geeza Pro', sans-serif;
+}
+
+html[lang=zh-cn]{
+	font-family: 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
+}
+
+html[lang=zh-tw]{
+	font-family: 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
+}
+
+html[lang=ko-kr]{
+	font-family: 'Apple SD Gothic Neo', Dotum, sans-serif;
+}
+
+html[lang=ja]{
+	font-family: 'Hiragino Kaku Gothic Pro', 'Meiyro', sans-serif;
+}
+//End of D2L additions (some changes below)
 
 body {
 	background-color: #FFFFFF;
-	color: #000000;
-	font-family: @font-family;
+	color: @d2l-color-ferrite; //default was #000000
+	font-family: inherit; //default was @font-family
 	font-size: @font-size;
 	scrollbar-3dlight-color: #F0F0EE;
 	scrollbar-arrow-color: #676662;
@@ -24,7 +53,7 @@ body {
 }
 
 td, th {
-	font-family: @font-family;
+	font-family: inherit; //default was @font-family
 	font-size: @font-size;
 }
 

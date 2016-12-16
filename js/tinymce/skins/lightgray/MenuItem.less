@@ -17,7 +17,7 @@
 
 .@{prefix}-menu-item .@{prefix}-ico, .@{prefix}-menu-item .@{prefix}-text {
 	color: @menuitem-text;
-	font-size: 1rem;
+	font-size: @d2l-text-font-size;
 }
 
 .@{prefix}-menu-item.@{prefix}-disabled .@{prefix}-text, .@{prefix}-menu-item.@{prefix}-disabled .@{prefix}-ico {
@@ -154,6 +154,7 @@ div.@{prefix}-menu .@{prefix}-menu-item-sep, .@{prefix}-menu-item-sep:hover {
 
 	span {
 		font-weight: @d2l-font-weight;
+		font-family: inherit;
 	}
 
 	// Increase space between icons and labels
@@ -162,7 +163,7 @@ div.@{prefix}-menu .@{prefix}-menu-item-sep, .@{prefix}-menu-item-sep:hover {
 	}
 }
 
-// RTL 
+// RTL
 .@{prefix}-rtl .@{prefix}-menu-item .@{prefix}-ico {
 	margin-right: 0;
     margin-left: 0.5rem

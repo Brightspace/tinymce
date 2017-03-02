@@ -21,6 +21,8 @@
 .@{prefix}-textbox:focus, .@{prefix}-textbox.@{prefix}-focus {
 	border-color: @textbox-border-focus;
 	.box-shadow(inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px fadeout(@textbox-border-focus, 15%));
+	border-width: 1px; // d2l
+	padding: 0 4px 0 4px; // d2l
 }
 
 .@{prefix}-placeholder .@{prefix}-textbox {
@@ -46,6 +48,13 @@
 // D2L
 .@{prefix}-textbox {
 	.border-radius(6px);
+}
+
+.@{prefix}-textbox:hover {
+	border-color: @textbox-border-focus;
+	.box-shadow(inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px fadeout(@textbox-border-focus, 15%));
+	border-width: 1px;
+	padding: 0 4px 0 4px;
 }
 
 // Fix Input box issues in Table dialog

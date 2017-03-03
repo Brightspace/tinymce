@@ -23,6 +23,7 @@
 .@{prefix}-rtl .@{prefix}-listbox button {
 	padding-right: 10px;
 	padding-left: 20px;
+	text-align: right // d2l
 }
 
 // D2L
@@ -50,6 +51,12 @@
 	.@{prefix}-rtl.@{prefix}-formitem button {
 		text-align: right;
 	}
+}
+
+// Fix alignment button issue in the a11ychecker dialog
+.@{prefix}-widget.@{prefix}-btn.@{prefix}-menubtn.@{prefix}-listbox.@{prefix}-last.@{prefix}-btn-has-text {
+	height: 2rem !important;
+	padding: 0;
 }
 
 // RTL

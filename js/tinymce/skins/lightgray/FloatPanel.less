@@ -83,13 +83,12 @@
 }
 
 // Conform OK button style to daylight
-.@{prefix}-floatpanel .@{prefix}-primary.@{prefix}-btn {
+.@{prefix}-floatpanel .@{prefix}-primary.@{prefix}-btn.@{prefix}-btn.@{prefix}-abs-layout-item.@{prefix}-btn-has-text {
 	//top: initial !important;
 	bottom: 0 !important;
 	border: 1px solid @d2l-save-button-border-color; 
 	background-color: @d2l-save-button-background-color;
 	border-radius: .3rem;
-	margin-left: -0.5rem;
 	
 	button {		
 		color: @d2l-save-button-color;
@@ -109,17 +108,13 @@
 	}
 }
 
-// RTL
-.@{prefix}-rtl.@{prefix}-floatpanel .@{prefix}-primary.@{prefix}-btn {
-	margin-left: 0.5rem;
-}
-
-// Conform Cancel button style to daylight
-.@{prefix}-floatpanel .@{prefix}-last.@{prefix}-btn.@{prefix}-abs-layout-item.@{prefix}-btn-has-text {
+// Conform non-menubar button styles to Daylight
+.@{prefix}-floatpanel .@{prefix}-btn.@{prefix}-abs-layout-item.@{prefix}-btn-has-text {
 	bottom: 0 !important;
 	background-color: @d2l-cancel-button-background-color;
 	border: 1px solid @d2l-cancel-button-border-color;
 	border-radius: .3rem;
+	width: initial;
 
 	button {		
 		color: @d2l-cancel-button-color;
@@ -129,7 +124,6 @@
 		line-height: 1rem;
 
 		span.@{prefix}-txt {
-			font-weight: inherit;
 			font-weight: inherit;
 			line-spacing: inherit;
 		}

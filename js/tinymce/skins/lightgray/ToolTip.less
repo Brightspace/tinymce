@@ -1,7 +1,7 @@
 // Tooltip
 
 .@{prefix}-tooltip {
-	//display: none; // d2l
+	//display: none; // turn them off
 	position: absolute;
 	padding: 5px;
 	.opacity(0.8);
@@ -15,6 +15,19 @@
 	padding: 5px 8px 4px 8px;
 	text-align: center;
 	white-space: normal;
+	animation: fadeInFromNone 2s linear;
+}
+
+@-webkit-keyframes fadeInFromNone {
+    0% {
+      opacity: 0;
+    }
+		90% {
+			opacity: 0;
+		}
+    100% {
+      opacity: 1;
+    }
 }
 
 .@{prefix}-tooltip-inner {

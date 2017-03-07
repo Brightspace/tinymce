@@ -8,13 +8,13 @@
 
 .@{prefix}-tooltip-inner {
 	font-size: @tooltip-font-size;
-	background-color: #FFFFFF;
-	color:  #565A5C;
+	background-color: #FFFFFF; //@tooltip-bg
+	color:  #565A5C; //@tooltip-text
 	max-width: 200px;
 	padding: 5px 8px 4px 8px;
 	text-align: center;
 	white-space: normal;
-	animation: fadeInFromNone 2s linear;
+	animation: fadeInFromNone 2s linear; //d2l - for styling
 }
 
 @keyframes fadeInFromNone {
@@ -31,7 +31,7 @@
 
 .@{prefix}-tooltip-inner {
 	.border-radius(3px);
-	border-style: solid;
+	border-style: solid; //d2l - for styling
 	border-width: 1px;
 	border-color: #AAAAAA;
 }

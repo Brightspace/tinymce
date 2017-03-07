@@ -1,7 +1,6 @@
 // Tooltip
 
 .@{prefix}-tooltip {
-	display: none; // d2l
 	position: absolute;
 	padding: 5px;
 	.opacity(0.8);
@@ -9,16 +8,32 @@
 
 .@{prefix}-tooltip-inner {
 	font-size: @tooltip-font-size;
-	background-color: @tooltip-bg;
-	color: @tooltip-text;
+	background-color: #FFFFFF; //@tooltip-bg
+	color:  #565A5C; //@tooltip-text
 	max-width: 200px;
 	padding: 5px 8px 4px 8px;
 	text-align: center;
 	white-space: normal;
+	animation: fadeInFromNone 2s linear; //d2l - for styling
+}
+
+@keyframes fadeInFromNone {
+    0% {
+      opacity: 0;
+    }
+		90% {
+			opacity: 0;
+		}
+    100% {
+      opacity: 1;
+    }
 }
 
 .@{prefix}-tooltip-inner {
 	.border-radius(3px);
+	border-style: solid; //d2l - for styling
+	border-width: 1px;
+	border-color: #AAAAAA;
 }
 
 .@{prefix}-tooltip-inner {
@@ -26,6 +41,7 @@
 }
 
 .@{prefix}-tooltip-arrow {
+	display: none;  //d2l - for styling
 	position: absolute;
 	width: 0;
 	height: 0;

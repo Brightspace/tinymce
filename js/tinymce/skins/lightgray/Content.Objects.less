@@ -19,9 +19,15 @@
 }
 
 //D2L added table value
-.mce-content-body > table:not([class]) {
+.mce-content-body > table {
 	border-style: solid;
 }
+
+.mce-content-body > table:not([border]),
+.mce-content-body > table[border="0"] {
+	border-style: dashed !important;
+}
+//End of D2L changes
 
 .mce-object {
 	border: 1px dotted #3A3A3A;

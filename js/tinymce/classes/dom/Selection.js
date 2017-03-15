@@ -25,8 +25,9 @@ define("tinymce/dom/Selection", [
 	"tinymce/dom/BookmarkManager",
 	"tinymce/dom/NodeType",
 	"tinymce/Env",
-	"tinymce/util/Tools"
-], function(TreeWalker, TridentSelection, ControlSelection, RangeUtils, BookmarkManager, NodeType, Env, Tools) {
+	"tinymce/util/Tools",
+	"tinymce/caret/CaretPosition"
+], function(TreeWalker, TridentSelection, ControlSelection, RangeUtils, BookmarkManager, NodeType, Env, Tools, CaretPosition) {
 	var each = Tools.each, trim = Tools.trim;
 	var isIE = Env.ie;
 
@@ -688,8 +689,7 @@ define("tinymce/dom/Selection", [
 		 */
 		getNode: function() {
 			var self = this, rng = self.getRng(), elm;
-			var startContainer = rng.startContainer, endContainer = rng.endContainer;
-			var startOffset = rng.startOffset, endOffset = rng.endOffset, root = self.dom.getRoot();
+			var startContainer, endContainer, startOffset, endOffset, root = self.dom.getRoot();
 
 			function skipEmptyTextNodes(node, forwards) {
 				var orig = node;
@@ -705,6 +705,11 @@ define("tinymce/dom/Selection", [
 			if (!rng) {
 				return root;
 			}
+
+			startContainer = rng.startContainer;
+			endContainer = rng.endContainer;
+			startOffset = rng.startOffset;
+			endOffset = rng.endOffset;
 
 			if (rng.setStart) {
 				elm = rng.commonAncestorContainer;
@@ -996,6 +1001,11 @@ define("tinymce/dom/Selection", [
 					rng.setEnd(root, root.childNodes.length);
 				}
 			}
+		},
+
+		getBoundingClientRect:  function() {
+			var rng = this.getRng();
+			return rng.collapsed ? CaretPosition.fromRangeStart(rng).getClientRects()[0] : rng.getBoundingClientRect();
 		},
 
 		destroy: function() {

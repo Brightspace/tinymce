@@ -36,16 +36,20 @@ define("tinymce/EditorManager", [
 
 	function globalEventDelegate(e) {
 		each(EditorManager.editors, function(editor) {
-			editor.fire('ResizeWindow', e);
+			if (e.type === 'scroll') {
+				editor.fire('ScrollWindow', e);
+			} else {
+				editor.fire('ResizeWindow', e);
+			}
 		});
 	}
 
 	function toggleGlobalEvents(editors, state) {
 		if (state !== boundGlobalEvents) {
 			if (state) {
-				$(window).on('resize', globalEventDelegate);
+				$(window).on('resize scroll', globalEventDelegate);
 			} else {
-				$(window).off('resize', globalEventDelegate);
+				$(window).off('resize scroll', globalEventDelegate);
 			}
 
 			boundGlobalEvents = state;
@@ -80,10 +84,11 @@ define("tinymce/EditorManager", [
 
 	function purgeDestroyedEditor(editor) {
 		// User has manually destroyed the editor lets clean up the mess
-		if (editor && !(editor.getContainer() || editor.getBody()).parentNode) {
+		if (editor && editor.initialized && !(editor.getContainer() || editor.getBody()).parentNode) {
 			removeEditorFromList(editor);
 			editor.unbindAllNativeEvents();
 			editor.destroy(true);
+			editor.removed = true;
 			editor = null;
 		}
 
@@ -157,7 +162,7 @@ define("tinymce/EditorManager", [
 			var self = this, baseURL, documentBaseURL, suffix = "", preInit, src;
 
 			// Get base URL for the current document
-			documentBaseURL = document.location.href;
+			documentBaseURL = URI.getDocumentBaseUrl(document.location);
 
 			// Check if the URL is a document based format like: http://site/dir/file and file:///
 			// leave other formats like applewebdata://... intact
@@ -286,7 +291,24 @@ define("tinymce/EditorManager", [
 		 * });
 		 */
 		init: function(settings) {
-			var self = this, result;
+			var self = this, result, invalidInlineTargets;
+
+			invalidInlineTargets = Tools.makeMap(
+				'area base basefont br col frame hr img input isindex link meta param embed source wbr track ' +
+				'colgroup option tbody tfoot thead tr script noscript style textarea video audio iframe object menu',
+				' '
+			);
+
+			function isInvalidInlineTarget(settings, elm) {
+				return settings.inline && elm.tagName.toLowerCase() in invalidInlineTargets;
+			}
+
+			function report(msg, elm) {
+				// Log in a non test environment
+				if (window.console && !window.test) {
+					window.console.log(msg, elm);
+				}
+			}
 
 			function createId(elm) {
 				var id = elm.id;
@@ -388,20 +410,18 @@ define("tinymce/EditorManager", [
 				var initCount = 0, editors = [], targets;
 
 				function createEditor(id, settings, targetElm) {
-					if (!purgeDestroyedEditor(self.get(id))) {
-						var editor = new Editor(id, settings, self);
+					var editor = new Editor(id, settings, self);
 
-						editors.push(editor);
+					editors.push(editor);
 
-						editor.on('init', function() {
-							if (++initCount === targets.length) {
-								provideResults(editors);
-							}
-						});
+					editor.on('init', function() {
+						if (++initCount === targets.length) {
+							provideResults(editors);
+						}
+					});
 
-						editor.targetElm = editor.targetElm || targetElm;
-						editor.render();
-					}
+					editor.targetElm = editor.targetElm || targetElm;
+					editor.render();
 				}
 
 				DOM.unbind(window, 'ready', initEditors);
@@ -425,8 +445,20 @@ define("tinymce/EditorManager", [
 					return;
 				}
 
+				Tools.each(targets, function(elm) {
+					purgeDestroyedEditor(self.get(elm.id));
+				});
+
+				targets = Tools.grep(targets, function(elm) {
+					return !self.get(elm.id);
+				});
+
 				each(targets, function(elm) {
-					createEditor(createId(elm), settings, elm);
+					if (isInvalidInlineTarget(settings, elm)) {
+						report('Could not initialize inline editor on invalid inline target element', elm);
+					} else {
+						createEditor(createId(elm), settings, elm);
+					}
 				});
 			}
 

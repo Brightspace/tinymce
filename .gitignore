@@ -22,9 +22,15 @@ js/tinymce/plugins/spellchecker/plugin.js
 js/tinymce/plugins/paste/plugin.js
 js/tinymce/plugins/imagetools/plugin.js
 js/tinymce/plugins/codesample/plugin.js
+js/tinymce/themes/inlite/theme.js
 imagemanager
 filemanager
 mcmanager
+powerpaste
+tinymcespellchecker
+a11ychecker
+codemirror
+mentions
 *.min.js
 *.dev.js
 *.full.js
@@ -36,3 +42,5 @@ skin.ie7.dev.less
 **/bolt/bootstrap*.js
 **/dist
 **/scratch
+**/lib
+**/dependency

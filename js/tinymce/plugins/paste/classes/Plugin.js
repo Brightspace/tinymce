@@ -55,6 +55,15 @@ define("tinymce/pasteplugin/Plugin", [
 			editor.focus();
 		}
 
+		// draw back if power version is requested and registered
+		if (/(^|[ ,])powerpaste([, ]|$)/.test(settings.plugins) && PluginManager.get('powerpaste')) {
+			/*eslint no-console:0 */
+			if (typeof console !== "undefined" && console.log) {
+				console.log("PowerPaste is incompatible with Paste plugin! Remove 'paste' from the 'plugins' option.");
+			}
+			return;
+		}
+
 		self.clipboard = clipboard = new Clipboard(editor);
 		self.quirks = new Quirks(editor);
 		self.wordFilter = new WordFilter(editor);
@@ -86,7 +95,7 @@ define("tinymce/pasteplugin/Plugin", [
 		});
 
 		// Block all drag/drop events
-		if (editor.paste_block_drop) {
+		if (editor.settings.paste_block_drop) {
 			editor.on('dragend dragover draggesture dragdrop drop drag', function(e) {
 				e.preventDefault();
 				e.stopPropagation();
